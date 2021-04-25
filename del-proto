@@ -1,0 +1,21 @@
+#!/usr/bin/python3
+
+import sys
+
+try:
+
+ file = sys.argv[1]
+ f = open(file, 'r')
+ dom = f.readlines()
+ f.close()
+
+ f = open('proto_deleted_{}'.format(file), 'a')
+ for i in range(len(dom)):
+  temp = dom[i]
+  templ = temp.split('/')
+  temp = templ[-1]
+  f.write(temp)
+ f.close()
+
+except:
+ print('[+] file is missing\n[+] syntax : del-proto {domains file}')

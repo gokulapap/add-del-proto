@@ -1,0 +1,24 @@
+#!/usr/bin/python3
+
+import sys
+
+
+try:
+ file = sys.argv[1]
+
+ proto = 'http://'
+ f = open(file, 'r')
+ dom = f.readlines()
+ f.close()
+
+ for i in range(len(dom)):
+  dom[i] = proto+dom[i]
+
+ f = open('proto_added_{}'.format(file), 'a')
+ for i in range(len(dom)):
+  f.write(dom[i])
+ f.close()
+
+except:
+ print('[+] domains file is missing\n[+] add-proto domains.txt')
+
