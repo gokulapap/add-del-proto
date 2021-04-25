@@ -14,13 +14,16 @@ try:
  for i in range(len(dom)):
   dom[i] = proto+dom[i]
 
+ str = ''
+
  f = open('proto_added_{}'.format(file), 'a')
  for i in range(len(dom)):
-  print(dom[i])
+  str = str + dom[i]
   f.write(dom[i])
  f.close()
 
- print("[+] view the file proto_added_{} for results".format(file))
+ print(str)
+ print("\n[+] view the file proto_added_{} for results".format(file))
 
 except:
  print('[+] domains file is missing\n[+] add-proto domains.txt')
