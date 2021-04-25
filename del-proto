@@ -9,17 +9,20 @@ try:
  dom = f.readlines()
  f.close()
 
+ str = ''
+
  f = open('proto_deleted_{}'.format(file), 'a')
  for i in range(len(dom)):
   dom[i] = dom[i].replace("https://www.","")
   dom[i] = dom[i].replace("http://www.","")
   dom[i] = dom[i].replace("https://","")
   dom[i] = dom[i].replace("http://","")
-  print(dom[i])
+  str = str + dom[i]
   f.write(dom[i])
  f.close()
 
-print("\n[+] view the file proto_deleted_{} for results".format(file))
+ print(str)
+ print("\n[+] view the file proto_deleted_{} for results".format(file))
 
 except:
  print('[+] file is missing\n[+] syntax : del-proto {domains file}')
