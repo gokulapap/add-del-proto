@@ -11,11 +11,15 @@ try:
 
  f = open('proto_deleted_{}'.format(file), 'a')
  for i in range(len(dom)):
-  temp = dom[i]
-  templ = temp.split('/')
-  temp = templ[-1]
-  f.write(temp)
+  dom[i] = dom[i].replace("https://www.","")
+  dom[i] = dom[i].replace("http://www.","")
+  dom[i] = dom[i].replace("https://","")
+  dom[i] = dom[i].replace("http://","")
+  print(dom[i])
+  f.write(dom[i])
  f.close()
+
+print("\n[+] view the file proto_deleted_{} for results".format(file))
 
 except:
  print('[+] file is missing\n[+] syntax : del-proto {domains file}')
