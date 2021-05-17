@@ -1,30 +1,7 @@
-#!/usr/bin/python3
+#!/bin/bash
 
-import sys
-
-
-try:
- file = sys.argv[1]
-
- proto = 'http://'
- f = open(file, 'r')
- dom = f.readlines()
- f.close()
-
- for i in range(len(dom)):
-  dom[i] = proto+dom[i]
-
- str = ''
-
- f = open('proto_added_{}'.format(file), 'a')
- for i in range(len(dom)):
-  str = str + dom[i]
-  f.write(dom[i])
- f.close()
-
- print(str)
- print("\n[+] view the file proto_added_{} for results".format(file))
-
-except:
- print('[+] domains file is missing\n[+] add-proto domains.txt')
-
+for i in $(cat $1);
+do
+ i=http://$i
+ echo $i
+done
